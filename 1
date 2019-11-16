@@ -1,0 +1,27 @@
+def rec_dig_sum(n):
+  while n > 9:
+    new_sum = []
+    for i in list(str(n)):
+      h = int(i)
+      new_sum.append(h)
+      n = sum(new_sum)
+  if n <= 9:
+    return(n)
+
+print(rec_dig_sum(562))
+
+
+def distr_of_rec_digit_sums(low=0, high=1500):
+  dict_rds = {}
+  counter = []
+  for i in range(low,high):
+    h = rec_dig_sum(i)
+    counter.append(h)
+    for i in range(1,10):
+      numb = counter.count(i)
+      dict_rds[i] = numb
+
+  return(dict_rds)
+
+print(distr_of_rec_digit_sums(0,1500))
+    
